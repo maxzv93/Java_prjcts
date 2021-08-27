@@ -1,4 +1,5 @@
 package com.company;
+import java.lang.*;
 
 public class Tasks {
     private int numberOfTask;
@@ -17,6 +18,9 @@ public class Tasks {
                 break;
             case 3:
                 TaskThree();
+                break;
+            case 4:
+                TaskFour();
                 break;
             default:
                 System.out.println("The task number out of band!!!");
@@ -53,7 +57,7 @@ public class Tasks {
         // идем с конца и пытаемся найти самый большой делитель
         // и проверяем его на простое число
         System.out.println("Three task:");
-        long number = 13195; //600851475143;
+        long number = 600_851_475_143L;
         long PrimeNumber=number;
         for(long n=number-1; n>1; n--){
             if(number%n==0){
@@ -71,4 +75,31 @@ public class Tasks {
         }
         System.out.printf("The largest prime factor = %d\n",PrimeNumber);
     }
+    public void TaskFour(){
+        //найти палиндром 2-х 3 циферных чисел
+        System.out.println("Four task:");
+        Integer Palindrome = 0;
+        int n=999;
+        int m=999;
+        String StrPal;
+        while(n>99){
+            while(m>99){
+                Palindrome=m*n;
+                StrPal=String.valueOf(Palindrome);
+                if(StrPal.length()==6){
+                    System.out.printf("palindr = %d  %d  %d\n",n,m,Palindrome);
+                    if(StrPal.substring(0,1)==StrPal.substring(5,6) & StrPal.substring(1,2)==StrPal.substring(4,5) & StrPal.substring(2,3)==StrPal.substring(3,4)){
+                        System.out.printf("m = %d; n = %d\n",m,n);
+                        System.out.printf("The largest palindrome= %d\n",Palindrome);
+                        return;
+                    }
+                }
+                m--;
+            }
+            n--;
+            m=999;
+        }
+
+    }
+
 }
