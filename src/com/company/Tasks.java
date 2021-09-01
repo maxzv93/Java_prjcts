@@ -22,6 +22,9 @@ public class Tasks {
             case 4:
                 TaskFour();
                 break;
+            case 5:
+                TaskFive();
+                break;
             default:
                 System.out.println("The task number out of band!!!");
                 break;
@@ -87,7 +90,8 @@ public class Tasks {
                 Palindrome=m*n;
                 StrPal=String.valueOf(Palindrome);
                 if(StrPal.length()==6){
-                    System.out.printf("palindr = %d  %d  %d\n",n,m,Palindrome);
+                    System.out.printf("palindr = %d  %d  %d",n,m,Palindrome);
+                    System.out.printf(" %s  %s     %s  %s       %s  %s\n", StrPal.substring(0,1),StrPal.substring(5,6),StrPal.substring(1,2),StrPal.substring(4,5), StrPal.substring(2,3),StrPal.substring(3,4));
                     if(StrPal.substring(0,1)==StrPal.substring(5,6) & StrPal.substring(1,2)==StrPal.substring(4,5) & StrPal.substring(2,3)==StrPal.substring(3,4)){
                         System.out.printf("m = %d; n = %d\n",m,n);
                         System.out.printf("The largest palindrome= %d\n",Palindrome);
@@ -98,6 +102,27 @@ public class Tasks {
             }
             n--;
             m=999;
+        }
+
+    }
+
+    public void TaskFive(){
+        //найти наименьшее число делящееся без остатка на числа 1...20
+        System.out.println("Five task:");
+        long Number = 1L;
+        int n=20;
+        while(Number<100000000000L){
+            while(n>1 && Number%n==0){
+                n--;
+                if(n==2){
+                    System.out.printf("The smallest number that can be divided by each of the numbers from 1 to 20 without any remainder = %d\n",Number);
+                    return;
+                }
+            }
+            if(Number%1000==0)
+                System.out.printf("Number = %d\n",Number);
+            n=20;
+            Number++;
         }
 
     }
