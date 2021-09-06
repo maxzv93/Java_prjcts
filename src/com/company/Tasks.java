@@ -25,6 +25,12 @@ public class Tasks {
             case 5:
                 TaskFive();
                 break;
+            case 6:
+                TaskSix();
+                break;
+            case 7:
+                TaskSeven();
+                break;
             default:
                 System.out.println("The task number out of band!!!");
                 break;
@@ -127,4 +133,41 @@ public class Tasks {
 
     }
 
+    public void TaskSix(){
+        //найти разность суммы квадратов первых N чисел и квадрата суммы
+        // the squares of the first ten natural numbers is
+        System.out.println("Six task:");
+        long sumOfSquare = 0L;
+        long squareOfSum = 0L;
+        int n=100;
+        for(int i=1; i<=n; i++){
+            sumOfSquare=sumOfSquare+i*i;
+            squareOfSum=squareOfSum+i;
+        }
+        squareOfSum=squareOfSum*squareOfSum;
+        System.out.printf("The square of the sum of the first one hundred natural numbers is = %d\n",squareOfSum);
+        System.out.printf("The sum of squares the first one hundred natural numbers is = %d\n",sumOfSquare);
+        System.out.printf("The difference between the sum of the squares of the first one hundred natural numbers and the square of the sum is = %d\n",squareOfSum-sumOfSquare);
+
+    }
+    public void TaskSeven(){
+        // the squares of the first ten natural numbers is
+        System.out.println("Seven task:");
+        long PrimeNumber = 0L;
+        long Number = 1L;
+        int i=0;
+        while(i<10001){
+            for(int j=1; j<=(int)Math.round(Number/2); j++){
+                if(Number%j==0 && j!=1){
+                    break;
+                }
+                if(j==(int)Math.round(Number/2)){
+                    PrimeNumber=Number;
+                    i++;
+                    System.out.printf("Prime number № %d = %d\n",i,Number);
+                }
+            }
+            Number=Number+1;
+        }
+    }
 }
