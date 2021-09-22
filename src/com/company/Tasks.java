@@ -1,5 +1,9 @@
 package com.company;
 import java.lang.*;
+import java.io.*;
+import java.sql.Array;
+import java.util.Arrays;
+import java.io.FileReader;
 
 public class Tasks {
     private int numberOfTask;
@@ -30,6 +34,9 @@ public class Tasks {
                 break;
             case 7:
                 TaskSeven();
+                break;
+            case 8:
+                TaskEight();
                 break;
             default:
                 System.out.println("The task number out of band!!!");
@@ -169,5 +176,41 @@ public class Tasks {
             }
             Number=Number+1;
         }
+    }
+
+    public void TaskEight(){
+        System.out.println("Eight task:");
+        int[] x = new int[1000];
+        long maxVal = 0L,Znach = 1L;
+        try {
+            FileReader reader = new FileReader("text_files\\One_thousand_mark_digit.txt");
+//            C:\Users\Maxim\IdeaProjects\Tasks_from_site\src\com\company\
+            int c,z=0;
+
+            while((c=reader.read())!=-1){
+
+
+                if((int)c-48>=0 && (int)c-48<10) {
+                    x[z] = (int) c - 48;
+                    z++;
+                }
+            }
+//        }finally {
+//            reader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        for(int n=0; n<988; n++){
+            for(int m=0;m<13;m++){
+                Znach=x[n+m]*Znach;
+            }
+            if(Znach>maxVal)
+                maxVal=Znach;
+            Znach=1;
+        }
+        System.out.println("maxVal=" + maxVal);
     }
 }
